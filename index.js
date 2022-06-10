@@ -88,3 +88,8 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+var http = require("http");
+setInterval(function() {
+    http.get("https://best-cat-bot.herokuapp.com/");
+}, 300000); // every 5 minutes (300000)
