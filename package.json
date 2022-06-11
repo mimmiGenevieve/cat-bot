@@ -2,6 +2,7 @@
   "name": "node-js-getting-started",
   "version": "0.3.0",
   "description": "A sample Node.js app using Express 4",
+  "type": "module",
   "engines": {
     "node": "16.x"
   },
@@ -11,10 +12,11 @@
     "test": "node test.js"
   },
   "dependencies": {
-    "ejs": "^3.1.5",
-    "express": "^4.15.2",
     "axios": "^0.27.2",
     "discord.js": "^13.8.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.5",
+    "express": "^4.15.2",
     "node-fetch": "^3.2.6"
   },
   "devDependencies": {
