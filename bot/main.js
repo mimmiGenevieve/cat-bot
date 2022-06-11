@@ -48,7 +48,7 @@ client.on("messageCreate", msg => {
 						{ name: 'fact', value: 'Sends you a random fact about cats' },
 						{ name: 'img', value: 'Sends you a random image of one or more cats' },
 						{ name: 'gif', value: 'Sends you a random gif of one or more cats' },
-						{ name: '?', value: 'Cat!' },
+						{ name: '!', value: 'Cat!!' },
 					)
 					.setImage('https://i.redd.it/0z0vcyxc4sz21.jpg');
 
