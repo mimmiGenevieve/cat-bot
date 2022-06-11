@@ -1,5 +1,4 @@
 import { Client, Intents, MessageEmbed } from 'discord.js';
-import axios from 'axios';
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 import {prefix, kittyImgHeaders} from './helpers.js'
 import { getFact, getCat } from './fetchers.js'
@@ -32,23 +31,7 @@ client.on("messageCreate", msg => {
 					})
 				})
 			}
-			case prefix + 'help': {
-				const commands = new MessageEmbed()
-					.setTitle("Here's the commands you can use:")
-					.setColor('#FFB8BF')
-					.addFields(
-						{ name: 'Fact', value: 'Sends you a random fact about cats' },
-						{ name: 'Img', value: 'Sends you a random image of one or more cats' },
-						{ name: 'Gif', value: 'Sends you a random gif of one or more cats' }
-					)
-					.setImage('https://i.redd.it/0z0vcyxc4sz21.jpg');
-
-				return msg.reply({
-					content: "You need some help there my dude?",
-					embeds: [commands]
-				});
-			}
-      default: {
+			case prefix + '!': {
 				return getCat().then(res =>  {
 					 const item = new MessageEmbed().setImage(res);
 					 msg.reply({
@@ -56,6 +39,23 @@ client.on("messageCreate", msg => {
 						 embeds: [item]
 					 })
 				 })
+			}
+      default: {
+				const commands = new MessageEmbed()
+					.setTitle("Here's the commands you can use:")
+					.setColor('#FFB8BF')
+					.addFields(
+						{ name: 'fact', value: 'Sends you a random fact about cats' },
+						{ name: 'img', value: 'Sends you a random image of one or more cats' },
+						{ name: 'gif', value: 'Sends you a random gif of one or more cats' },
+						{ name: '?', value: 'Cat!' },
+					)
+					.setImage('https://i.redd.it/0z0vcyxc4sz21.jpg');
+
+				return msg.reply({
+					content: "You need some help there my dude?",
+					embeds: [commands]
+				});
 			}
 		}
 	}

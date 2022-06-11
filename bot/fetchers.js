@@ -1,4 +1,5 @@
 import { errorMsg } from './helpers.js'
+import axios from 'axios';
 
 export async function getFact() {
   try {
